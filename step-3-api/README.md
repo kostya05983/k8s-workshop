@@ -107,6 +107,10 @@
           option (google.api.http).get = "/v1alpha/math/fibonacci";
       }
       ```
+    - Don't forget to add 
+      ```proto
+        import "google/api/annotations.proto";
+      ```
     - Run `docker run --rm -u $(id -u):$(id -g) -v $PWD/contracts:/contracts -w /contracts thethingsindustries/protoc --swagger_out=logtostderr=true:. --grpc-gateway_out=logtostderr=true:. -I. ./*.proto`
     - So we got some code for gateway, lets include it to our server:
       ```go
